@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(108): warning C4305: 'argument': truncation from 'double' to 'const float'
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(111): warning C4305: 'argument': truncation from 'double' to 'const float'
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(114): warning C4305: 'argument': truncation from 'double' to 'const float'
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(117): warning C4305: 'argument': truncation from 'double' to 'const float'
+  TestTexturesGL.vcxproj -> C:\Users\It\documents\visual studio 2015\Projects\TestTexturesGL\x64\Debug\TestTexturesGL.exe
