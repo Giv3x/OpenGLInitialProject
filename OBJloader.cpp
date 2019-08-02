@@ -1,11 +1,12 @@
 #include "OBJloader.h"
 
 #include <fstream>
+#include <iostream>
 
 OBJloader::OBJloader() {
 }
 
-Mesh OBJloader::load(const char* file) {
+RawModel OBJloader::load(const char* file) {
 	std::ifstream str(file);
 	std::string line;
 
@@ -14,12 +15,13 @@ Mesh OBJloader::load(const char* file) {
 	std::vector<glm::vec3> normals;
 
 	std::vector<Vertex> vertexData;
-	std::vector<int> indices;
+	std::vector<unsigned int> indices;
 
 	std::vector<std::string> strVector;
-
+	int i = 0;
 	while (std::getline(str, line)) {
 		strVector = split(line, ' ');
+		i++;
 		if (strVector[0] == "v") {
 			vertices.push_back(glm::vec3(stof(strVector[1]), stof(strVector[2]), stof(strVector[3])));
 		}
@@ -32,7 +34,9 @@ Mesh OBJloader::load(const char* file) {
 		else if (strVector[0] == "f") {
 			vertexData.resize(vertices.size());
 			break;
+			std::cout << "ups" << std::endl;
 		}
+		std::cout << i << std::endl;
 	}
 
 	do {
@@ -44,25 +48,17 @@ Mesh OBJloader::load(const char* file) {
 		processVertex(indexData[3], vertices, textures, normals, indices, vertexData);
 	} while (std::getline(str, line));
 
-	Vertex testVerticesData[3];
-	for (int i = 0; i < vertexData.size(); i++) {
-		testVerticesData[i] = vertexData[i];
-	}
-
-	int testIndicesData[3];
-	for (int i = 0; i < indices.size(); i++) {
-		testIndicesData[i] = indices[i];
-	}
+	RawModel model(vertexData, indices);
 
 	//Mesh mesh(&vertexData[0], vertexData.size(), &indices[0], indices.size());
-	Mesh mesh(testVerticesData, 3, testIndicesData, 3);
+	//Mesh mesh(testVerticesData, 3, testIndicesData, 3);
 
-	return mesh;
+	return model;
 }
 
 
 void OBJloader::processVertex(std::string& indexData, std::vector<glm::vec3>& v, std::vector<glm::vec2>& t,
-		std::vector<glm::vec3>& n, std::vector<int>& indices, std::vector<Vertex>& vertexData) {
+		std::vector<glm::vec3>& n, std::vector<unsigned int>& indices, std::vector<Vertex>& vertexData) {
 	std::vector<std::string> ind = split(indexData, '/');
 	
 	int currentVertex = stoi(ind[0]) - 1;

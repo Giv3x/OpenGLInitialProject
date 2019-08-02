@@ -1,14 +1,18 @@
 #pragma once
 
 #include <glm\glm.hpp>
+#include <vector>
 
 class Vertex {
 public:
-	Vertex(const glm::vec3& pos, const glm::vec2& texCoords = glm::vec2(0, 0), const glm::vec3& normals = glm::vec3(0,0,0)) {
+	Vertex(glm::vec3& pos, glm::vec2& texCoords = glm::vec2(0, 0), glm::vec3& normals = glm::vec3(0, 0, 0)) {
 		positions = pos;
 		this->texCoords = texCoords;
 		this->normals = normals;
 	}
+
+	Vertex() {}
+	~Vertex() {}
 
 	glm::vec3& getPosition() {
 		return positions;
@@ -24,9 +28,20 @@ class RawModel
 {
 public:
 	RawModel();
+	RawModel(unsigned int numVertices, unsigned int numIndices = 0);
+	RawModel(const std::vector<Vertex>& v, const std::vector<unsigned int>& i);
+	void loadData(const std::vector<Vertex>& v, const std::vector<unsigned int>& i);
 	~RawModel();
 
+	unsigned int getVerticesSize() { return vertices.size(); }
+	unsigned int getIndicesSize() { return indices.size(); }
+	Vertex* vertices2Array() { return &vertices[0]; }
+	unsigned int* indices2Array() { return &indices[0]; }
+	std::vector<Vertex>* getVertices() { return &vertices; }
+	std::vector<unsigned int>* getIndices() { return &indices; }
+
 private:
-	Vertex* vertices = nullptr;
+	std::vector<Vertex> vertices;
+	std::vector<unsigned int> indices;
 };
 

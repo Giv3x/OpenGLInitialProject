@@ -1,6 +1,4 @@
-﻿  main.cpp
-c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(108): warning C4305: 'argument': truncation from 'double' to 'const float'
-c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(111): warning C4305: 'argument': truncation from 'double' to 'const float'
-c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(114): warning C4305: 'argument': truncation from 'double' to 'const float'
-c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(117): warning C4305: 'argument': truncation from 'double' to 'const float'
+﻿  OBJloader.cpp
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\rawmodel.h(36): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\rawmodel.h(37): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
   TestTexturesGL.vcxproj -> C:\Users\It\documents\visual studio 2015\Projects\TestTexturesGL\x64\Debug\TestTexturesGL.exe

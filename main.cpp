@@ -34,15 +34,14 @@ int main(int argc, char** argv) {
 	GLfloat innerRadius = 0.25f, outerRadius = 0.45f;
 
 	//Mesh mesh(vertices, 3, indices, 3);
-	//Texture bricksTexture("res/textures/bricks.jpg");
-	Texture bricksTexture("res/textures/tree.png");
+	Texture bricksTexture("res/textures/bricks.jpg");
+	//Texture bricksTexture("res/textures/tree.png");
 	Camera camera(glm::vec3(0, 0, -10), 70.f, 1200 / 800, 0.1f, 1000.f);
 	Transform model;
 
-	OBJloader obj;
 	//Mesh mesh = obj.load("res/objs/triangle.obj");
 	//Mesh mesh("res/objs/monkey3.obj");
-	Mesh mesh("res/objs/triangle.obj");
+	Mesh mesh("res/objs/monkey3.obj");
 
 	map<int, bool> keyPress;
 

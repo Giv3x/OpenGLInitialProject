@@ -3,26 +3,7 @@
 #include <GL\glew.h>
 #include <string>
 
-class Vertex {
-public:
-	Vertex(glm::vec3& pos, glm::vec2& texCoords = glm::vec2(0, 0), glm::vec3& normals = glm::vec3(0, 0, 0)) {
-		positions = pos;
-		this->texCoords = texCoords;
-		this->normals = normals;
-	}
-
-	Vertex() {}
-	~Vertex() {}
-
-	glm::vec3& getPosition() {
-		return positions;
-	}
-
-private:
-	glm::vec3 positions;
-	glm::vec2 texCoords;
-	glm::vec3 normals;
-};
+#include "RawModel.h"
 
 enum BufferPositions {
 	POSITION_VB,
@@ -36,7 +17,6 @@ class Mesh
 {
 public:
 	Mesh() {}
-	Mesh(Vertex* vertices, GLuint numVertices, int* indices, GLuint numIndices);
 	Mesh(const std::string& fileName);
 	virtual ~Mesh();
 	void Draw();
