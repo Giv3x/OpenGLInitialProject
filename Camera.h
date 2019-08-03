@@ -15,6 +15,7 @@ public:
 	void move(const glm::vec3& dir, const float& amt);
 	glm::vec3 getLeft();
 	glm::vec3 getRight();
+	glm::vec3 getForward();
 	void rotateX(const float& angle);
 	void rotateY(const float& angle);
 

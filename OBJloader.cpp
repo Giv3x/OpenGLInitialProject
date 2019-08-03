@@ -21,7 +21,6 @@ RawModel OBJloader::load(const char* file) {
 	int i = 0;
 	while (std::getline(str, line)) {
 		strVector = split(line, ' ');
-		i++;
 		if (strVector[0] == "v") {
 			vertices.push_back(glm::vec3(stof(strVector[1]), stof(strVector[2]), stof(strVector[3])));
 		}
@@ -34,9 +33,7 @@ RawModel OBJloader::load(const char* file) {
 		else if (strVector[0] == "f") {
 			vertexData.resize(vertices.size());
 			break;
-			std::cout << "ups" << std::endl;
 		}
-		std::cout << i << std::endl;
 	}
 
 	do {
@@ -66,7 +63,7 @@ void OBJloader::processVertex(std::string& indexData, std::vector<glm::vec3>& v,
 	int currentNormal = stoi(ind[2]) - 1;
 
 	indices.push_back(currentVertex);
-	vertexData[currentVertex] = Vertex(v[currentVertex], t[currentTexture], n[currentNormal]);
+	vertexData[currentVertex] = Vertex(v[currentVertex], glm::vec2(t[currentTexture].x, 1 - t[currentTexture].y), n[currentNormal]);
 }
 
 

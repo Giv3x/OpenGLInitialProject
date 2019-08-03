@@ -34,14 +34,14 @@ int main(int argc, char** argv) {
 	GLfloat innerRadius = 0.25f, outerRadius = 0.45f;
 
 	//Mesh mesh(vertices, 3, indices, 3);
-	Texture bricksTexture("res/textures/bricks.jpg");
-	//Texture bricksTexture("res/textures/tree.png");
+	//Texture bricksTexture("res/textures/bricks.jpg");
+	Texture bricksTexture("res/textures/tree.png");
 	Camera camera(glm::vec3(0, 0, -10), 70.f, 1200 / 800, 0.1f, 1000.f);
 	Transform model;
 
 	//Mesh mesh = obj.load("res/objs/triangle.obj");
 	//Mesh mesh("res/objs/monkey3.obj");
-	Mesh mesh("res/objs/monkey3.obj");
+	Mesh mesh("res/objs/tree.obj");
 
 	map<int, bool> keyPress;
 
@@ -110,10 +110,10 @@ int main(int argc, char** argv) {
 			camera.move(camera.getRight(), 0.01);
 		}
 		if (keyPress[SDLK_w]) {
-			camera.move(glm::vec3(0, 0, 1), 0.01);
+			camera.move(camera.getForward(), 0.01);
 		}
 		if (keyPress[SDLK_s]) {
-			camera.move(glm::vec3(0, 0, -1), 0.01);
+			camera.move(-camera.getForward(), 0.01);
 		}
 		if (keyPress[SDLK_UP]) {
 			camera.rotateY(-0.1f);

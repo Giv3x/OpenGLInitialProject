@@ -9,7 +9,7 @@ Mesh::Mesh(const std::string& filename) {
 	OBJloader loader;
 	RawModel model = loader.load(filename.c_str());
 
-	//this->initMesh(model.vertices2Array(), model.getIndicesSize(), model.indices2Array(), model.getIndicesSize());
+	this->initMesh(model.vertices2Array(), model.getIndicesSize(), model.indices2Array(), model.getIndicesSize());
 }
 
 void Mesh::initMesh(Vertex* vertices, GLuint numVertices, unsigned int* indices, GLuint numIndices) {

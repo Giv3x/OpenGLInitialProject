@@ -31,6 +31,11 @@ glm::vec3 Camera::getRight() {
 }
 
 
+glm::vec3 Camera::getForward() {
+	return m_forward;
+}
+
+
 void Camera::rotateX(const float& angle) {
 	glm::vec3 hAxis = glm::cross(m_yAxis, m_forward);
 	hAxis = glm::normalize(hAxis);
