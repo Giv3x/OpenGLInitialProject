@@ -24,8 +24,14 @@ Texture::Texture(const std::string& filename) {
 	stbi_image_free(image);
 }
 
-Texture::~Texture() {
+void Texture::initTexture(const std::string& filename) {
+}
+
+void Texture::free() {
 	glDeleteTextures(1, &m_texture);
+}
+
+Texture::~Texture() {
 }
 
 void Texture::bind() {

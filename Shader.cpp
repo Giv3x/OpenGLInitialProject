@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-Shader::Shader(const std::string& fileName) {
+void Shader::initShader(const std::string& fileName) {
 	m_program = glCreateProgram();
 	m_shaders[0] = CreateShader(loadShader(fileName + ".vs"), GL_VERTEX_SHADER);
 	m_shaders[1] = CreateShader(loadShader(fileName + ".txt"), GL_FRAGMENT_SHADER);

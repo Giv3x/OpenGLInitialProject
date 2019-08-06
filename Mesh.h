@@ -17,16 +17,18 @@ class Mesh
 {
 public:
 	Mesh() {}
-	Mesh(const std::string& fileName);
+	Mesh(RawModel& model);
+	GLuint getVertexArrayObject() { return m_vertexArrayObject; }
+	GLuint getDrawCount() { return m_drawCount; }
+	void initMesh(RawModel& model);
+	void initMesh(Vertex* vertices, GLuint numVertices, unsigned int* indices, GLuint numIndices);
+	void initMesh(Vertex* vertices, GLuint numVertices);
 	virtual ~Mesh();
-	void Draw();
 
 private:
 	GLuint m_vertexArrayObject;
 	GLuint m_vertexArrayBuffer;
 	GLuint m_elementArrayBuffer;
 	GLuint m_drawCount;
-
-	void initMesh(Vertex* vertices, GLuint numVertices, unsigned int* indices, GLuint numIndices);
 };
 

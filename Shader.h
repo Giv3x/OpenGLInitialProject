@@ -7,8 +7,9 @@
 
 class Shader {
 public:
-	Shader(const std::string& fileName);
+	Shader() {}
 
+	void initShader(const std::string& fileName);
 	void Bind();
 	void getUniformLocation(GLchar*name);
 	void getUniformLocations(GLchar** names, int size);

@@ -25,3 +25,8 @@ void RawModel::loadData(const std::vector<Vertex>& v, const std::vector<unsigned
 
 RawModel::~RawModel() {
 }
+
+
+void RawModel::loadTexture(const std::string& file) {
+	Texture texture(file);
+}

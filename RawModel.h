@@ -3,6 +3,8 @@
 #include <glm\glm.hpp>
 #include <vector>
 
+#include "Texture.h"
+
 class Vertex {
 public:
 	Vertex(glm::vec3& pos, glm::vec2& texCoords = glm::vec2(0, 0), glm::vec3& normals = glm::vec3(0, 0, 0)) {
@@ -31,6 +33,7 @@ public:
 	RawModel(unsigned int numVertices, unsigned int numIndices = 0);
 	RawModel(const std::vector<Vertex>& v, const std::vector<unsigned int>& i);
 	void loadData(const std::vector<Vertex>& v, const std::vector<unsigned int>& i);
+	void loadTexture(const std::string& file);
 	~RawModel();
 
 	unsigned int getVerticesSize() { return vertices.size(); }

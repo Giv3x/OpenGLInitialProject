@@ -7,7 +7,9 @@ class Texture
 public:
 	Texture() {}
 	Texture(const std::string& filename);
+	void initTexture(const std::string& filename);
 	void bind();
+	void free();
 	~Texture();
 
 private:
