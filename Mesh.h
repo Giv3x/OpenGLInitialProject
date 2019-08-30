@@ -23,6 +23,8 @@ public:
 	void initMesh(RawModel& model);
 	void initMesh(Vertex* vertices, GLuint numVertices, unsigned int* indices, GLuint numIndices);
 	void initMesh(Vertex* vertices, GLuint numVertices);
+
+	void free();
 	virtual ~Mesh();
 
 private:

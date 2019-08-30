@@ -1,9 +1,49 @@
 #version 430
-
 varying vec2 texCoord0;
+varying vec4 eyeCoords;
+varying vec3 modeledNormal;
+varying vec3 toCameraVector;
+
+struct MaterialInfo {
+	vec3 Kd;
+	vec3 Ka;
+	vec3 Ks;
+	float shininess;
+};
+
+struct LightInfo {
+	vec4 position;
+	vec3 Ld;
+	vec3 La;
+	vec3 Ls;
+};
 
 uniform sampler2D texture;
+uniform LightInfo light;
+uniform MaterialInfo material;
+
+vec3 diffuse;
+vec3 specular = vec3(0.0);
+
+void phongModel() {
+	vec3 s = normalize(vec3(light.position - eyeCoords.xyz));
+	vec3 v = normalize(-toCameraVector);
+	vec3 r = reflect(-s, modeledNormal);
+
+	vec3 ambient = light.La * material.Ka;
+	
+	float sDotN = max(dot(modeledNormal,s), 0);
+	diffuse = light.Ld * material.Kd * sDotN;
+
+	float rDotV = max(dot(v,r), 0);
+	if(rDotV > 0) {
+		specular = light.Ls * material.Ks * pow(rDotV, material.shininess);
+	}
+
+	diffuse = diffuse + ambient;
+}
 
 void main() {
-    gl_FragColor = texture2D(texture, texCoord0); 
+	phongModel();
+    gl_FragColor = vec4(diffuse, 1.0) * vec4(0.0, 1.0, 0.0, 1.0);	//vec4(diffuse, 1.0) * texture2D(texture, texCoord0); 
 }

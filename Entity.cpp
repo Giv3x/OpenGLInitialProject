@@ -30,7 +30,13 @@ void Entity::loadTexture(const std::string& file) {
 
 
 Entity::~Entity() {
+}
+
+void Entity::free() {
 	for (int i = 0; i < textures.size(); i++) {
 		textures[i].free();
 	}
+
+	shader.free();
+	mesh.free();
 }

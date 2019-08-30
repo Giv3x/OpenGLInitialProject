@@ -33,6 +33,10 @@ void Mesh::initMesh(Vertex* vertices, GLuint numVertices, unsigned int* indices,
 	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(2, 3, GL_FLOAT, false, 8 * sizeof(float), (GLvoid*)(sizeof(glm::vec3) + sizeof(glm::vec2)));
 
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glDisableVertexAttribArray(2);
+
 	glBindVertexArray(0);
 }
 
@@ -65,8 +69,11 @@ void Mesh::initMesh(Vertex* vertices, GLuint numVertices) {
 	glBindVertexArray(0);
 }
 
-Mesh::~Mesh() {
+void Mesh::free() {
 	glDeleteBuffers(1, &m_vertexArrayBuffer);
 	glDeleteBuffers(1, &m_elementArrayBuffer);
 	glDeleteVertexArrays(1, &m_vertexArrayObject);
+}
+
+Mesh::~Mesh() {
 }

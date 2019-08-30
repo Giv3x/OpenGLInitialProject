@@ -22,6 +22,7 @@ public:
 	Shader& getShader() { return shader; }
 	std::vector<Texture>& getTextures() { return textures; }
 
+	void free();
 	~Entity();
 
 private:

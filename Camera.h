@@ -8,8 +8,12 @@ class Camera
 public:
 	Camera(const glm::vec3& position, float fov, float ratio, float zNear, float zFar);
 	~Camera();
-	inline glm::mat4 getViewProjection() const {
-		return m_perspective * glm::lookAt(m_position, m_position + m_forward, m_up);
+	inline glm::mat4 getViewMatrix() const {
+		return glm::lookAt(m_position, m_position + m_forward, m_up);
+	}
+
+	glm::mat4 getProjectionMatrix() {
+		return m_perspective;
 	}
 	
 	void move(const glm::vec3& dir, const float& amt);

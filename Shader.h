@@ -11,10 +11,13 @@ public:
 
 	void initShader(const std::string& fileName);
 	void Bind();
+	void Stop();
+	void free();
 	void getUniformLocation(GLchar*name);
 	void getUniformLocations(GLchar** names, int size);
 	void bindUniform(GLchar* name, const glm::mat4& matrix);
 	void bindUniform(GLchar* name, const glm::vec4& data);
+	void bindUniform(GLchar* name, const glm::vec3& data);
 	void bindUniform(GLchar* name, float number);
 
 	virtual ~Shader();

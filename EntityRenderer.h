@@ -12,6 +12,7 @@ public:
 	void initRenderer(Camera& camera);
 	void init(RawModel& model, const std::string& file);
 
+	void free();
 	~EntityRenderer();
 
 private:

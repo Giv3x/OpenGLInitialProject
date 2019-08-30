@@ -1,8 +1,15 @@
-﻿  main.cpp
+﻿  Mesh.cpp
 c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\rawmodel.h(39): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
 c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\rawmodel.h(40): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
-c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(69): warning C4305: 'argument': truncation from 'double' to 'const float'
-c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(72): warning C4305: 'argument': truncation from 'double' to 'const float'
-c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(75): warning C4305: 'argument': truncation from 'double' to 'const float'
-c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\main.cpp(78): warning C4305: 'argument': truncation from 'double' to 'const float'
+  EntityRenderer.cpp
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\rawmodel.h(39): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\rawmodel.h(40): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Entity.cpp
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\rawmodel.h(39): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+c:\users\it\documents\visual studio 2015\projects\testtexturesgl\testtexturesgl\rawmodel.h(40): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  Renderer.cpp
+  OBJloader.cpp
   TestTexturesGL.vcxproj -> C:\Users\It\documents\visual studio 2015\Projects\TestTexturesGL\x64\Debug\TestTexturesGL.exe

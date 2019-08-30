@@ -24,6 +24,9 @@ void Shader::initShader(const std::string& fileName) {
 }
 
 Shader::~Shader() {
+}
+
+void Shader::free() {
 	for (int i = 0; i < NUM_SHADERS; i++) {
 		glDetachShader(m_program, m_shaders[i]);
 		glDeleteShader(m_shaders[i]);
@@ -48,6 +51,12 @@ void Shader::bindUniform(GLchar* name, const glm::vec4& data) {
 	glUniform4fv(uniforms[name], 1, &data[0]);
 }
 
+void Shader::bindUniform(GLchar* name, const glm::vec3& data) {
+	if (uniforms.find(name) == uniforms.end())
+		this->getUniformLocation(name);
+	glUniform3fv(uniforms[name], 1, &data[0]);
+}
+
 void Shader::bindUniform(GLchar* name, float number) {
 	if (uniforms.find(name) == uniforms.end())
 		this->getUniformLocation(name);
@@ -62,6 +71,10 @@ void Shader::bindUniform(GLchar* name, const glm::mat4& matrix) {
 
 void Shader::Bind() {
 	glUseProgram(m_program);
+}
+
+void Shader::Stop() {
+	glUseProgram(0);
 }
 
 std::string Shader::loadShader(const std::string& fileName) {
